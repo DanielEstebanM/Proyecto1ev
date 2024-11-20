@@ -1,0 +1,322 @@
+$color_1: black;
+$color_2: #5a5868;
+$color_3: #46454b;
+$color_4: white;
+$color_5: #5100ff;
+$font-family_1: "Inter", Arial, Helvetica, sans-serif;
+$font-family_2: Verdana, Geneva, Tahoma, sans-serif;
+$font-family_3: 'Shrikhand';
+$font-family_4: "InterMedium";
+$font-family_5: "InterMedium", Arial, Helvetica, sans-serif;
+$font-family_6: Arial, Helvetica, sans-serif;
+$background-color_1: white;
+$background-color_2: #FBFBFB;
+$background-color_3: inherit;
+$background-color_4: black;
+$background-color_5: whitesmoke;
+$background-color_6: transparent;
+$background-color_7: #f2f2f2;
+$background-color_8: #5100ff;
+$background-color_9: #f5f5f5;
+$border-color_1: #f2f2f2;
+
+// Mixin para sombras de caja
+@mixin box-shadow($offset-x, $offset-y, $blur-radius, $spread-radius, $color) {
+	box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+}
+
+// Mixin para transición de transformaciones
+@mixin transition-transform($duration, $timing-function) {
+	transition: transform $duration $timing-function;
+}
+
+// Mixin para estilos de botones
+@mixin button-styles($bg-color, $text-color, $hover-bg, $hover-text) {
+	background-color: $bg-color;
+	color: $text-color;
+	cursor: pointer;
+	font-size: 11px;
+	@include box-shadow(3px, 3px, 0px, 0px, black);
+	@include transition-transform(0.2s, ease);
+
+	&:hover {
+		background-color: $hover-bg;
+		color: $hover-text;
+	}
+
+	&:active {
+		transform: translate(3px, 3px);
+		box-shadow: 0px 0px;
+	}
+}
+
+@font-face {
+	font-family: 'Shrikhand';
+	src: url(../Fuentes/shrikhand/Shrikhand-Regular.ttf);
+}
+
+@font-face {
+	font-family: 'InterMedium';
+	src: url("../Fuentes/inter/Inter-Medium.otf");
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url("../Fuentes/inter/Inter-V.ttf");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: $font-family_1;
+}
+
+body {
+	background-color: $background-color_1;
+}
+
+nav {
+	top: 0;
+	background-color: $background-color_2;
+	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	z-index: 11;
+	width: 100%;
+	height: 50px;
+	@include box-shadow(0px, 0px, 10px, 0px, rgba(0, 0, 0, 0.2));
+
+	p {
+		font-family: $font-family_2;
+		font-style: italic;
+		font-size: 20px;
+		margin-left: 20px;
+	}
+}
+
+.div_logo {
+	height: 50px;
+	border-radius: 7px;
+	padding: 10px;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	@include transition-transform(0.4s, ease);
+
+	&:hover {
+		transform: scale(1.1);
+	}
+
+	&:active {
+		transform: scale(0.95);
+		transition-duration: 0.4s;
+	}
+}
+
+.img_logo {
+	width: 50px;
+}
+
+// Código completo restante con mixins integrados
+.enlaces_apartados {
+	margin-left: auto;
+	margin-right: 40px;
+	display: flex;
+	height: 100%;
+	align-items: stretch;
+	margin-top: -20px;
+
+	div {
+		background-color: $background-color_3;
+		padding: 10px 20px;
+		text-align: center;
+		transition: background-image 0.15s ease;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+
+	.div_enlaces_visibles {
+		&:hover {
+			background-image: linear-gradient(to bottom, white, rgb(241, 233, 255), white);
+		}
+	}
+
+	hr {
+		border-color: $border-color_1;
+		margin-top: 20px;
+		margin-bottom: 0;
+		display: none;
+	}
+
+	a {
+		text-decoration: none;
+		font-size: 18px;
+		color: $color_1;
+		padding: 5px 10px;
+	}
+}
+
+// Agregado dinámico continúa aquí
+@mixin transform-scale($scale, $duration: 0.4s, $easing: ease) {
+	transform: scale($scale);
+	transition: transform $duration $easing;
+}
+
+@mixin box-shadow-hover($offset-x: 5px, $offset-y: 5px, $blur: 0px, $color: black) {
+	box-shadow: $offset-x $offset-y $blur $color;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+	&:hover {
+		transform: translate(-$offset-x, -$offset-y);
+		box-shadow: 0px 0px $blur $color;
+	}
+}
+
+@mixin gradient-hover($start-color, $end-color, $duration: 0.15s) {
+	transition: background-image $duration ease;
+
+	&:hover {
+		background-image: linear-gradient(to bottom, $start-color, $end-color, $start-color);
+	}
+}
+
+@mixin text-shadow-hover($text-shadow, $duration: 0.7s) {
+	transition: text-shadow $duration ease;
+
+	&:hover {
+		text-shadow: $text-shadow;
+	}
+}
+
+// Aplicación de mixins al código original
+.div_logo {
+	height: 50px;
+	border-radius: 7px;
+	padding: 10px;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	@include transform-scale(1.1);
+
+	&:active {
+		@include transform-scale(0.95, 0.4s);
+	}
+}
+
+.img_logo {
+	width: 50px;
+}
+
+.img_menu_oculto {
+	width: 28px;
+	transition: opacity 0.3s ease, transform 0.6s ease;
+
+	&:hover {
+		opacity: 75%;
+	}
+}
+
+.interior {
+	&:hover {
+		.img_OpenAI {
+			@include transform-scale(1.8, 0.8s, ease);
+		}
+
+		h1 {
+			@include text-shadow-hover(0px 25px rgba(0, 0, 0, 0.5));
+		}
+	}
+}
+
+.input[type="email"],
+input[type="text"] {
+	@include box-shadow-hover(3px, 3px, black);
+}
+
+.div_enlaces_visibles {
+	@include gradient-hover(white, rgb(241, 233, 255));
+}
+
+.div_enlaces_menulateral {
+	width: 100%;
+	@include gradient-hover(whitesmoke, rgb(229, 215, 255));
+}
+
+// Continuación del código con el resto de las reglas
+.footer_final {
+	text-align: center;
+	background-color: $background-color_9;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+	p {
+		font-family: $font-family_1;
+		font-size: 13px;
+		padding: 20px;
+	}
+
+	span {
+		font-family: $font-family_5;
+	}
+}
+
+@media (min-width: 993px) {
+	.enlaces_apartados {
+		hr {
+			display: flex;
+		}
+
+		.div_enlaces_visibles {
+			display: flex;
+		}
+	}
+
+	.div_enlace_oculto {
+		display: none;
+	}
+
+	.enlaces_adicionales.show {
+		display: none;
+	}
+
+	.contenedor_portada {
+		margin-top: -30px;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.portada {
+		text-align: center;
+		height: 100%;
+		margin: 2px;
+		position: relative;
+		background-size: contain;
+	}
+
+	.img_portada {
+		height: 80%;
+		width: 90%;
+		border-radius: 6px;
+	}
+
+	.contenido {
+		margin-left: 20%;
+		margin-right: 20%;
+	}
+
+	.perfil-container {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+}
+
+@media (min-width: 269px) and (max-width: 568px) {
+	.perfil-container .perfil-info p {
+		margin-left: 60px;
+	}
+}

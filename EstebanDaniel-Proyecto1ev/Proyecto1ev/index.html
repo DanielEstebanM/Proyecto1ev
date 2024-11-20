@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Daniel Esteban</title>
+    <link rel="icon" href="Imágenes/LogoDEM2.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/Blog2.css">
+</head>
+
+<header>
+    <nav>
+        <div class="div_logo">
+            <img src="Imágenes/LogoDEM.png" alt="Imagen logo" class="img_logo" id="menu" onclick="abrirMenu()">
+        </div>
+        <p>"OpenAI"</p>
+
+        <div class="enlaces_apartados">
+            <hr>
+            <div class="div_enlaces_visibles">
+                <a href="html/PagArticulos.html">"Artículos"</a>
+            </div>
+            <hr>
+            <div class="div_enlaces_visibles">
+                <a href="html/Contacto.html">"Contacto"</a>
+            </div>
+            <hr>
+            <div class="div_enlaces_visibles">
+                <a href="html/Otros.html">"Otros"</a>
+            </div>
+            <div class="div_enlace_oculto">
+                <a class="menu_oculto" onclick="abrirMenuFlecha()">
+                    <img class="img_menu_oculto" id="img_flecha" src="Imágenes/flechaAbajo.png" alt="Menú">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="enlacesAdicionales" class="enlaces_adicionales">
+        <a href="html/PagArticulos.html">Artículos</a>
+        <a href="html/Contacto.html">Contacto</a>
+        <a href="html/Otros.html">Otros</a>
+    </div>
+
+    <!-- --- MENÚ LATERAL --- -->
+
+    <div class="menu" id="menu_lateral">
+        <div class="div_titulo_menulateral">
+            <h2 id="titulo">DEM</h2>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="index.html" id="enlaces">OpenAI</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="html/ChatGPT.html" id="enlaces">ChatGPT</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="html/Wall-E.html" id="enlaces">Wall-E</a>
+        </div>
+    </div>
+
+    <script>
+        function abrirMenuFlecha() {
+            const menu = document.getElementById("enlacesAdicionales");
+            const flecha = document.getElementById("img_flecha");
+
+            menu.classList.toggle("show");
+            flecha.classList.toggle("rotate");
+        }
+
+        let menuAbierto = false; // Variable para rastrear si el menú está abierto o cerrado
+
+        function abrirMenu() {
+            let menuLateral = document.getElementById("menu_lateral");
+            let titulo = document.getElementById("titulo");
+            let enlaces = document.querySelectorAll("#menu_lateral a");
+
+            if (!menuAbierto) {
+                // Abrir menú
+                menuLateral.style.width = "275px";
+                titulo.style.transform = "translateX(0)";
+                enlaces.forEach(function (enlace) {
+                    enlace.style.transform = "translateX(0)";
+                });
+                menuAbierto = true; // Cambiar estado
+            } else {
+                // Cerrar menú
+                menuLateral.style.width = "0";
+                titulo.style.transform = "translateX(-300px)";
+                enlaces.forEach(function (enlace) {
+                    enlace.style.transform = "translateX(-300px)";
+                });
+                menuAbierto = false; // Cambiar estado
+            }
+        }
+
+        function redirigirEnlace() {
+            abrirMenu();
+        }
+    </script>
+</header>
+
+<body>
+
+    <div class="interior">
+        <img src="Imágenes/Portada.gif">
+        <div class="div_img_OpenAI">
+            <img class="img_OpenAI" src="Imágenes/openAI.png" alt="Imagen logo OpenAI">
+            <h1>OpenAI</h1>
+        </div>
+    </div>
+
+    <div class="contenido">
+        <h1 style="margin-top: 50px;">¿Qué es OpenAI?</h1>
+        <p><span>OpenAI</span> es una organización de investigación centrada en el desarrollo y la promoción de la
+            inteligencia
+            artificial amigable. Fue fundada en 2015 por un grupo de destacados líderes tecnológicos, entre ellos Elon
+            Musk y Sam Altman, con la intención de hacer avanzar la IA de una manera que beneficie a la humanidad.
+            OpenAI lleva a cabo investigaciones en diversas áreas, incluyendo el aprendizaje automático, la robótica y
+            la economía, y ha lanzado varias herramientas y modelos innovadores, como GPT-3 y DALL-E, que han sido
+            ampliamente utilizados e influyentes en el campo de la IA. Además de sus actividades de investigación,
+            OpenAI también participa en actividades educativas y de divulgación para ayudar a promover una mejor
+            comprensión de la IA y sus posibles repercusiones en la sociedad.</p>
+
+        <img class="img_ElonYSam" src="Imágenes/ElonYSam.webp" alt="Imagen Elon y Sam">
+
+        <h2 style="margin-top: 30px;">¿Por qué es importante OpenAI?</h2>
+        <p>OpenAI es importante por varias razones. He aquí algunas:</p>
+        <ul>
+            <li><span>Investigación</span>: OpenAI lleva a cabo investigación puntera en el campo de la inteligencia
+                artificial, y su trabajo ha ayudado a avanzar en el estado del arte en algunas áreas, como el
+                procesamiento del lenguaje natural y el aprendizaje automático.</li>
+            <li><span>Herramientas y modelos</span>: OpenAI ha desarrollado varias herramientas y modelos influyentes,
+                como GPT-3 y DALL-E, que han sido ampliamente utilizados en la industria y el mundo académico. Estas
+                herramientas han ayudado a investigadores y desarrolladores a crear sistemas de IA más avanzados y a
+                resolver diversos problemas del mundo real.</li>
+            <li><span>Educación y divulgación</span>: OpenAI participa en actividades educativas y de divulgación para
+                ayudar a promover una mejor comprensión de la IA y sus posibles repercusiones en la sociedad. Esto
+                incluye la organización de actos y conferencias, la publicación de artículos y trabajos de investigación
+                y el suministro de recursos y materiales para estudiantes de todos los niveles.</li>
+            <li><span>IA responsable</span>: OpenAI se compromete a hacer avanzar la IA de forma responsable y segura.
+                Ha desarrollado y promovido las mejores prácticas para el desarrollo responsable de la IA y ha trabajado
+                para abordar los posibles problemas éticos y sociales que plantea el avance de la IA.</li>
+        </ul>
+        <p>OpenAI desempeña un papel clave a la hora de determinar la dirección y el impacto de la inteligencia
+            artificial, y es un colaborador esencial en el campo de la investigación y el desarrollo de la IA.</p>
+
+        <h1 style="margin-top: 30px;">¿Cómo se puede utilizar GPT en la vida y en el trabajo?</h1>
+        <p>Un caso de uso interesante de ChatGPT es el desarrollo de chatbots para atención al cliente. Imagínate
+            mantener una conversación natural, similar a la de un ser humano, con un chatbot cuando tienes una pregunta
+            o un problema con un producto o servicio. La capacidad de ChatGPT para generar respuestas coherentes y
+            atractivas le permite imitar con eficacia la conversación humana, lo que lo convierte en una herramienta
+            ideal para crear chatbots que puedan ayudar a los clientes de forma útil y amable.</p>
+        <p>Otra posible aplicación de ChatGPT es la creación de contenidos. ChatGPT podría generar artículos originales,
+            historias u otras obras escritas proporcionando una serie de indicaciones o directrices. Esto podría ser
+            útil para vendedores, periodistas o autores que busquen generar ideas o ampliar su producción. Además,
+            ChatGPT podría ayudar en la traducción de idiomas, permitiendo a los usuarios traducir fácilmente textos de
+            un idioma a otro con gran precisión y fluidez.</p>
+        <p>Además de estas aplicaciones, ChatGPT también podría utilizarse para crear sistemas capaces de resumir
+            automáticamente textos o documentos extensos, facilitando a los profesionales la revisión y comprensión
+            rápida de grandes cantidades de información. También podría utilizarse para analizar y comprender el
+            lenguaje natural, lo que podría ser útil para tareas de clasificación de textos y análisis de sentimientos.
+            ChatGPT es una herramienta versátil y potente que tiene el potencial de revolucionar la forma en que
+            interactuamos con los ordenadores y entre nosotros.</p>
+
+        <h2>Curiosidades sobre ChatGPT</h2>
+        <ul>
+            <li>ChatGPT se basa en el modelo GPT-3, uno de los modelos lingüísticos más grandes y avanzados hasta la
+                fecha. Se ha entrenado con un conjunto de datos de miles de millones de palabras y puede generar texto
+                similar al humano en una amplia gama de estilos y tonos.</li>
+            <li>ChatGPT ha recibido mucha atención por su capacidad para generar respuestas atractivas y coherentes a
+                diversas preguntas. En algunos casos, incluso ha sido capaz de hacer creer a los humanos que están
+                interactuando con otra persona.</li>
+            <li>ChatGPT se ha utilizado para crear chatbots capaces de entablar conversaciones naturales con los
+                usuarios. Estos chatbots se han utilizado para la atención al cliente, la educación en línea o el
+                entretenimiento.</li>
+            <li>También se ha utilizado para generar contenidos originales basados en instrucciones o
+                directrices, como artículos e historias. Esto tiene el potencial de revolucionar la forma en que creamos
+                y consumimos contenidos escritos.</li>
+            <li>Sin embargo, tiene sus limitaciones. Aunque puede generar textos similares a los humanos, su
+                comprensión del mundo es parcial y a veces produce respuestas sin sentido o que no guardan relación con
+                lo que se le pide. Tampoco es capaz de entender el contexto o la intención del mismo modo que un ser
+                humano.</li>
+        </ul>
+
+        <div class="leerMas">
+            <a href="html/PagArticulos.html">Leer más</a>
+        </div>
+
+    </div>
+
+</body>
+
+<footer>
+    <hr style="margin-bottom: 70px;">
+    <div class="perfil-container">
+        <div class="div_contacto">
+            <div class="div_fotoYNombre">
+                <img src="Imágenes/Foto.jpeg" alt="Foto de perfil" class="perfil-img">
+                <h1>Daniel Esteban</h1>
+            </div>
+            <div class="perfil-info">
+                <p>Soy una persona que le gusta
+                    mucho trabajar en equipo e
+                    intento siempre dar lo mejor de
+                    mí mismo. Con una gran
+                    creatividad, socialización, con
+                    una gran motivación y ganas de
+                    seguir aprendiendo y mejorar
+                    cada día. Me gusta terminar mis
+                    prioridades cuanto antes y
+                    centrarme en mis hobbies.</p>
+            </div>
+            <div class="redesSociales">
+                <a href="mailto:daniel.esteban20@educa.madrid.org" title="Correo"><img src="Imágenes/correo.png"
+                        alt="Imagen correo" class="imgRedesSociales"></a>
+                <a href="https://www.linkedin.com/in/daniel-esteban-miranda-790504253/" target="_blank"
+                    title="Linkedin"><img src="Imágenes/linkedin.png" alt="Imagen Linkedin"
+                        class="imgRedesSociales"></a>
+                <a href="Documentos/Daniel Esteban CV DAW (en curso).pdf" target="_blank" title="Currículum"><img
+                        src="Imágenes/cv.png" alt="Imagen CV" class="imgRedesSociales"></a>
+                <a href="https://github.com/DanielEstebanM" target="_blank" title="Github"><img
+                        src="Imágenes/github.png" alt="Imagen Github" class="imgRedesSociales"></a>
+            </div>
+        </div>
+        <div class="email-signup">
+            <p><span>Suscríbete</span></p>
+            <p class="p_suscripción">al boletín y disfruta de más ventajas:</p>
+
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <div>
+                <input type="email" placeholder="Correo electrónico" id="correo" required>
+                <button type="submit" onclick="mandarAlerta();">SUSCRIBIRSE</button>
+            </div>
+
+        </div>
+        <script>
+            function mandarAlerta() {
+                if (document.getElementById("correo").value != 0 && document.getElementById("nombre").value != 0) {
+                    alert("Gracias por inscribirte " + document.getElementById("nombre").value);
+                    window.location.href = "index.html";
+                }
+                else alert("Rellene todos los campos.");
+            }
+        </script>
+    </div>
+    <div class="footer_final">
+        <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span
+                property="dct:title">Blog OpenAI</span> by <span property="cc:attributionName">Daniel Esteban</span> is
+            licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+                rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
+    </div>
+</footer>
+
+</html>

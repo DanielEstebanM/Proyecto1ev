@@ -1,0 +1,695 @@
+@font-face {
+    font-family: 'Shrikhand';
+    src: url(../Fuentes/shrikhand/Shrikhand-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'InterMedium';
+    src: url("../Fuentes/inter/Inter-Medium.otf");
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url("../Fuentes/inter/Inter-V.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+nav {
+    top: 0;
+    background-color: #FBFBFB;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 11;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.div_logo {
+    height: 50px;
+    border-radius: 7px;
+    padding: 10px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease, background-color 0.2s ease-in-out;
+}
+
+.div_logo:hover {
+    transform: scale(1.1);
+}
+
+.div_logo:active {
+    transform: scale(0.95);
+    transition-duration: 0.4s;
+}
+
+.img_logo {
+    width: 50px;
+}
+
+nav p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.enlaces_apartados {
+    margin-left: auto;
+    margin-right: 40px;
+    display: flex;
+    height: 100%;
+    align-items: stretch;
+    margin-top: -20px;
+}
+
+.enlaces_apartados div {
+    background-color: inherit;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    transition: background-image 0.15s ease;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.div_enlaces_visibles {
+    display: none;
+}
+
+.enlaces_apartados .div_enlaces_visibles:hover {
+    background-image: linear-gradient(to bottom, white, rgb(241, 233, 255), white);
+}
+
+.enlaces_apartados hr {
+    border-color: #f2f2f2;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    display: none;
+}
+
+.enlaces_apartados a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    padding: 5px 10px;
+}
+
+.div_enlace_oculto {
+    display: flex;
+}
+
+.img_menu_oculto {
+    width: 28px;
+    transition: opacity 0.3s ease, transform 0.6s ease;
+}
+
+.img_menu_oculto:hover {
+    opacity: 75%;
+}
+
+.img_menu_oculto.rotate {
+    transform: rotate(180deg);
+}
+
+.enlaces_adicionales {
+    background-color: white;
+    position: fixed;
+    display: flex;
+    top: 50px;
+    /* Colocado debajo de la barra de navegación */
+    left: 0;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    justify-content: space-around;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100px);
+    /* Desplazado ligeramente hacia arriba */
+    transition: transform 0.6s ease;
+    /* Transición */
+    z-index: 2;
+    pointer-events: none;
+    /* Evita que se pueda hacer clic cuando está oculto */
+}
+
+/* Menú adicional visible */
+.enlaces_adicionales.show {
+    transform: translateY(11px);
+    /* Se desplaza a su posición final */
+    pointer-events: auto;
+    /* Habilita clics cuando es visible */
+}
+
+.enlaces_adicionales a {
+    color: black;
+    text-decoration: none;
+    position: relative;
+    /* Necesario para posicionar el pseudo-elemento */
+    font-size: 18px;
+    transition: color 0.3s ease;
+    /* Cambia suavemente el color */
+    display: inline-block;
+    padding: 10px 5px;
+    /* Espaciado entre enlaces */
+}
+
+/* Subrayado animado */
+.enlaces_adicionales a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    /* Alineado justo debajo del enlace */
+    width: 0;
+    height: 1px;
+    /* Grosor del subrayado */
+    background-color: black;
+    /* Color del subrayado */
+    transition: width 0.4s ease;
+    /* Animación suave para la expansión */
+}
+
+/* Expande el subrayado al pasar el ratón */
+.enlaces_adicionales a:hover::after {
+    width: 100%;
+    /* Hace que el subrayado abarque todo el ancho del enlace */
+}
+
+/* MENÚ LATERAL */
+
+.menu {
+    margin-top: 70px;
+    width: 0;
+    height: calc(100vh - 70px);
+    background-color: whitesmoke;
+    top: 0;
+    left: 0;
+    position: fixed;
+    transition: width 0.3s ease;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.498);
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.menu h2 {
+    font-family: 'Shrikhand';
+    font-weight: 100;
+    padding: 20px;
+    padding-left: 100px;
+    color: black;
+    text-shadow: 0 0px 2px black;
+    transform: translateX(-300px);
+    transition: transform 0.27s ease;
+    white-space: nowrap;
+}
+
+.div_titulo_menulateral {
+    border-bottom: 1px solid black;
+    position: sticky;
+    /* Mantiene el título visible al hacer scroll */
+    top: 0;
+    /* Se queda pegado a la parte superior del menú */
+    background-color: whitesmoke;
+    /* Color de fondo para que coincida con el menú */
+    z-index: 2;
+}
+
+.menu .div_enlaces_menulateral {
+    width: 100%;
+}
+
+.menu .div_enlaces_menulateral:hover {
+    background-image: linear-gradient(to bottom, whitesmoke, rgb(229, 215, 255), whitesmoke);
+}
+
+.menu a {
+    display: block;
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: black;
+    font-size: 18px;
+    opacity: 85%;
+    text-decoration: none;
+    transform: translateX(-300px);
+    transition: transform 0.27s ease;
+    white-space: nowrap;
+}
+
+/* ----- */
+
+.img_atras {
+    padding-top: 120px;
+    margin-left: 70px;
+    width: 30px;
+    transition: opacity 0.2s ease;
+}
+
+.img_atras:hover {
+    opacity: 60%;
+}
+
+h1 {
+    font-family: 'Shrikhand';
+    font-weight: 100;
+    font-size: 30px;
+    margin-top: -37px;
+    text-align: center;
+}
+
+.rellenar_contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.flex_campos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    max-width: 400px;
+    justify-content: space-between;
+}
+
+.flex_campos input[type="text"],
+.flex_campos input[type="tel"],
+.flex_campos input[type="email"] {
+    font-size: 12px;
+    padding: 15px;
+    width: 500px;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mensaje {
+    font-size: 12px;
+    width: 366px;
+    height: 150px;
+    min-height: 100px;
+    max-height: 300px;
+    resize: vertical;
+    padding: 15px;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 20px;
+}
+
+input[type="text"]:hover,
+input[type="tel"]:hover,
+input[type="email"]:hover,
+.mensaje:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px;
+}
+
+.flex_botones {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+.flex_botones button {
+    padding: 10px 20px;
+    background-color: #5100ff;
+    border: 1px solid black;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 3px 3px black;
+    transition: background-color 0.25s ease-in-out, color 0.15s ease-in-out, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+/* FOOTER */
+
+.footer {
+    width: 100%;
+    background-color: whitesmoke;
+    display: flex;
+}
+
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+.div_contacto {
+    margin-top: 40px;
+    justify-content: center;
+    width: 100%;
+    width: 400px;
+    text-align: center;
+}
+
+.img_logo_footer {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    object-fit: cover;
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+.img_logo_footer:hover {
+    transform: scale(1.07);
+}
+
+.imgRedesSociales {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.imgRedesSociales:hover {
+    transform: scale(1.1);
+}
+
+.redesSociales {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* SUBSCRIPCIÓN */
+
+.email-signup {
+    margin-top: 20px;
+    background-color: transparent;
+    padding: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.email-signup p {
+    font-size: 14px;
+    text-align: center;
+}
+
+.p_suscripción {
+    margin-bottom: 20px;
+}
+
+.email-signup span {
+    font-family: 'Shrikhand';
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.email-signup form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.email-signup input[type="email"],
+.email-signup input[type="text"] {
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 12px;
+    background-color: #f2f2f2;
+    border: 1px solid black;
+    width: 250px;
+    color: black;
+    box-sizing: border-box;
+    text-align: left;
+    box-shadow: 3px 3px black;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.email-signup input[type="email"]:hover,
+.email-signup input[type="text"]:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px;
+}
+
+.email-signup div {
+    margin-top: 4px;
+    display: flex;
+    gap: 6px;
+}
+
+.email-signup button {
+    padding: 10px 20px;
+    background-color: #5100ff;
+    border: 1px solid black;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    font-size: 11px;
+    box-shadow: 3px 3px black;
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.email-signup button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px;
+}
+
+.email-signup button:hover {
+    background-color: white;
+    color: black;
+}
+
+.footer_final {
+    text-align: center;
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer_final p {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    padding: 20px;
+}
+
+.footer_final span {
+    font-family: "InterMedium", Arial, Helvetica, sans-serif;
+}
+
+/* -RESPONSIVE- */
+
+@media (min-width: 993px) {
+
+    .enlaces_apartados hr {
+        display: flex;
+    }
+
+    .enlaces_apartados .div_enlaces_visibles {
+        display: flex;
+    }
+
+    .div_enlace_oculto {
+        display: none;
+    }
+
+    .enlaces_adicionales.show {
+        display: none;
+    }
+
+    .perfil-container {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .rellenar_contacto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex_campos {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+        max-width: 700px;
+        margin-bottom: 10px;
+        justify-content: space-between;
+    }
+
+    .flex_campos input[type="text"],
+    .flex_campos input[type="tel"],
+    .flex_campos input[type="email"] {
+        font-size: 16px;
+        padding: 15px;
+        width: 500px;
+        background-color: whitesmoke;
+        border: 2px solid black;
+        box-shadow: 4px 4px black;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .mensaje {
+        font-size: 16px;
+        min-width: 666px;
+        height: 150px;
+        min-height: 100px;
+        max-height: 300px;
+        resize: vertical;
+        padding: 15px;
+        background-color: whitesmoke;
+        border: 2px solid black;
+        box-shadow: 4px 4px black;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"]:hover,
+    input[type="tel"]:hover,
+    input[type="email"]:hover,
+    .mensaje:hover {
+        transform: translate(4px, 4px);
+        box-shadow: 0px 0px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+
+    .enlaces_apartados hr {
+        display: flex;
+    }
+
+    .enlaces_apartados .div_enlaces_visibles {
+        display: flex;
+    }
+
+    .div_enlace_oculto {
+        display: none;
+    }
+
+    .enlaces_adicionales.show {
+        display: none;
+    }
+
+    nav p {
+        font-size: 18px;
+    }
+
+    .enlaces_apartados a {
+        font-size: 16px;
+    }
+
+    .flex_campos {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+        margin-bottom: 10px;
+        max-width: 600px;
+        justify-content: space-between;
+    }
+
+    .flex_campos input[type="text"],
+    .flex_campos input[type="tel"],
+    .flex_campos input[type="email"] {
+        font-size: 14px;
+        padding: 15px;
+        background-color: whitesmoke;
+        border: 2px solid black;
+        box-shadow: 4px 4px black;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .mensaje {
+        font-size: 14px;
+        width: 567px;
+        height: 150px;
+        min-height: 100px;
+        max-height: 300px;
+        resize: vertical;
+        padding: 15px;
+        background-color: whitesmoke;
+        border: 2px solid black;
+        box-shadow: 4px 4px black;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"]:hover,
+    input[type="tel"]:hover,
+    input[type="email"]:hover,
+    .mensaje:hover {
+        transform: translate(4px, 4px);
+        box-shadow: 0px 0px;
+    }
+
+    .flex_botones {
+        margin-bottom: 400px;
+    }
+}
+
+@media (min-width: 269px) and (max-width: 568px) {
+
+    .flex_campos {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 10px;
+        margin-bottom: 10px;
+        max-width: 600px;
+        justify-content: space-between;
+    }
+
+    .flex_campos input[type="text"],
+    .flex_campos input[type="tel"],
+    .flex_campos input[type="email"],
+    .mensaje {
+        width: 250px;
+    }
+
+    .img_atras {
+        margin-left: 40px;
+    }
+
+    .email-signup input[type="email"],
+    .email-signup input[type="text"] {
+        width: 200px;
+    }
+}
+
+@media (min-height: 1000px) and (max-height: 1500px) {
+    .footer {
+        bottom: 0;
+    }
+}

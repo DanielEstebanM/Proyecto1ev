@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículos</title>
+    <link rel="icon" href="../Imágenes/LogoDEM2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/PagArticulos.css">
+</head>
+
+<header>
+    <nav>
+        <div class="div_logo">
+            <img src="../Imágenes/LogoDEM.png" alt="Imagen logo" class="img_logo" id="menu" onclick="abrirMenu()">
+        </div>
+        <p>"OpenAI"</p>
+
+        <div class="enlaces_apartados">
+            <hr>
+            <div class="div_enlaces_visibles">
+                <a href="../html/PagArticulos.html">"Artículos"</a>
+            </div>
+            <hr>
+            <div class="div_enlaces_visibles">
+                <a href="../html/Contacto.html">"Contacto"</a>
+            </div>
+            <hr>
+            <div class="div_enlaces_visibles">
+                <a href="../html/Otros.html">"Otros"</a>
+            </div>
+            <div class="div_enlace_oculto">
+                <a class="menu_oculto" onclick="abrirMenuFlecha()">
+                    <img class="img_menu_oculto" id="img_flecha" src="../Imágenes/flechaAbajo.png" alt="Menú">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="enlacesAdicionales" class="enlaces_adicionales">
+        <a href="../html/PagArticulos.html">Artículos</a>
+        <a href="../html/Contacto.html">Contacto</a>
+        <a href="../html/Otros.html">Otros</a>
+    </div>
+
+    <!-- --- MENÚ LATERAL --- -->
+
+    <div class="menu" id="menu_lateral">
+        <div class="div_titulo_menulateral">
+            <h2 id="titulo">DEM</h2>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="../index.html" id="enlaces">OpenAI</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="../html/ChatGPT.html" id="enlaces">ChatGPT</a>
+        </div>
+        <div class="div_enlaces_menulateral" onclick="redirigirEnlace()">
+            <a href="../html/Wall-E.html" id="enlaces">Wall-E</a>
+        </div>
+    </div>
+
+    <script>
+        function abrirMenuFlecha() {
+            const menu = document.getElementById("enlacesAdicionales");
+            const flecha = document.getElementById("img_flecha");
+
+            menu.classList.toggle("show");
+            flecha.classList.toggle("rotate");
+        }
+
+        let menuAbierto = false; // Variable para rastrear si el menú está abierto o cerrado
+
+        function abrirMenu() {
+            let menuLateral = document.getElementById("menu_lateral");
+            let titulo = document.getElementById("titulo");
+            let enlaces = document.querySelectorAll("#menu_lateral a");
+
+            if (!menuAbierto) {
+                // Abrir menú
+                menuLateral.style.width = "275px";
+                titulo.style.transform = "translateX(0)";
+                enlaces.forEach(function (enlace) {
+                    enlace.style.transform = "translateX(0)";
+                });
+                menuAbierto = true; // Cambiar estado
+            } else {
+                // Cerrar menú
+                menuLateral.style.width = "0";
+                titulo.style.transform = "translateX(-300px)";
+                enlaces.forEach(function (enlace) {
+                    enlace.style.transform = "translateX(-300px)";
+                });
+                menuAbierto = false; // Cambiar estado
+            }
+        }
+
+        function redirigirEnlace() {
+            abrirMenu();
+        }
+    </script>
+</header>
+
+<body>
+    <div class="portada">
+        <img src="../Imágenes/PortadaArtículos.webp" alt="Imagen portada">
+    </div>
+
+    <div class="contenido">
+        <h1 style="margin-top: 50px;">¿Qué vamos a ver?</h1>
+
+        <p>En este blog centraremos la atención no solo en <span>OpenAI</span> sino también en sus respectivas hijas,
+            IAs que han sido creadas para cubrir determinadas funciones, como pueden ser generar fotos, vídeos,
+            información y muchas más cosas. Así que poco más puedo decir, solamente que disfrutes y aprendas algo más
+            sobre el mundo que nos espera.</p>
+
+        <div class="div_articulos">
+            <a href="../html/ChatGPT.html">
+                <div class="div_articulo1">
+                    <h1>ChatGPT</h1>
+                </div>
+            </a>
+
+            <a href="../html/Wall-E.html">
+                <div class="div_articulo2">
+                    <h1>Wall-E</h1>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <hr>
+    <div class="perfil-container">
+        <div class="div_contacto">
+            <img class="img_logo_footer" src="../Imágenes/LogoDEM2.png" alt="Imagen logo">
+            <div class="redesSociales">
+                <a href="mailto:daniel.esteban20@educa.madrid.org" title="Correo"><img src="../Imágenes/correo.png"
+                        alt="Imagen correo" class="imgRedesSociales"></a>
+                <a href="https://www.linkedin.com/in/daniel-esteban-miranda-790504253/" target="_blank"
+                    title="Linkedin"><img src="../Imágenes/linkedin.png" alt="Imagen Linkedin"
+                        class="imgRedesSociales"></a>
+                <a href="documentos/Daniel Esteban CV DAW (en curso).pdf" target="_blank" title="Currículum"><img
+                        src="../Imágenes/cv.png" alt="Imagen CV" class="imgRedesSociales"></a>
+                <a href="https://github.com/DanielEstebanM" target="_blank" title="Github"><img
+                        src="../Imágenes/github.png" alt="Imagen Github" class="imgRedesSociales"></a>
+            </div>
+        </div>
+        <div class="email-signup">
+            <p><span>Suscríbete</span></p>
+            <p class="p_suscripción">al boletín y disfruta de más ventajas:</p>
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <div>
+                <input type="email" placeholder="Correo electrónico" id="correo" required>
+                <button type="submit" onclick="mandarAlerta();">SUSCRIBIRSE</button>
+            </div>
+        </div>
+        <script>
+            function mandarAlerta() {
+                const nombreSuscriptor = document.getElementById("nombre").value.trim();
+                const correoSuscriptor = document.getElementById("correo").value.trim();
+
+                if (nombreSuscriptor && correoSuscriptor) {
+                    alert("Gracias por inscribirte, " + nombreSuscriptor + "!");
+                    window.location.href = "../index.html";
+                }
+                else alert("Rellene todos los campos.");
+            }
+        </script>
+
+    </div>
+    <div class="footer_final">
+        <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span
+                property="dct:title">Blog OpenAI</span> by <span property="cc:attributionName">Daniel Esteban</span> is
+            licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+                rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
+    </div>
+</footer>
+
+</html>
